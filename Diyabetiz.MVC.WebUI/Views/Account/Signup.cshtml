@@ -1,0 +1,71 @@
+﻿@model RegisterVM
+@{
+    ViewBag.Title = "Signup";
+}
+@if(null != TempData["NoteError"])
+   {
+<script type="text/javascript">
+       alert("@TempData["NoteError"]");
+</script>
+   }
+<section class="ftco-section contact-section">
+    <div class="container mt-2">
+        <div class="row block-9">
+
+            <div class="col-md-2"></div>
+
+            <div class="col-md-6 ftco-animate">
+                <br />
+                <br />
+                <h2>Üye Ol</h2>
+                @using (Html.BeginForm("Signup", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    @TempData["NoteError"]
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control placeholder-no-fix", type = "text", placeholder = "Ad *", required = "true", name = "name" , maxlength = 20 })
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                @Html.TextBoxFor(x => x.Surname, new { @class = "form-control placeholder-no-fix", type = "text", placeholder = "Soyad *", required = "true", name = "surname", maxlength = 20 })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control placeholder-no-fix", type = "email", placeholder = "Email *", required = "true", name = "email" })
+                    </div>
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(x => x.Username, new { @class = "form-control placeholder-no-fix", type = "text", placeholder = "Kullanıcı Adı *", required = "true", name = "username", maxlength = 10 })
+                    </div>
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(x => x.Password, new { @class = "form-control placeholder-no-fix", type = "password", placeholder = "Şifre *", required = "true", name = "password", minlength = 6 })
+                    </div>
+                    <div class="form-group">
+
+                        @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control placeholder-no-fix", type = "password", placeholder = "Şifre Tekrar *", required = "true", name = "confirmpassword", minlength = 6 })
+                    </div>
+                  
+                    <div class="form-group sidebar-box ftco-animate">
+                        <input type="submit" id="register-submit-btn" value="Üye Ol" class="btn btn-primary py-3 px-5" style="float:right;">
+                        <a href="/Account/SignIn" class="tag-cloud-link">Üye Misiniz?</a>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+        <div class="col-md-4"></div>
+
+    </div>
+</section>
+

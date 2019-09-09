@@ -1,0 +1,16 @@
+﻿@model IEnumerable<Food>
+
+
+@foreach (var item in Model)
+{
+    <div class="col-md-12 animate-box fadeInUp animated-fast containerF">
+        <div class="news col-md-12 row">
+            <div class="col-md-2"><a href="#" class="img-holder"><img class="img-responsive" src="~/images/Food/@Url.Content(item.ImageURL)" alt="Free HTML5 Website Template by freehtml5.co"></a></div>
+
+            <div class="desc col-md-10">
+                <div> <h3><a href="#">@item.Name</a></h3><p>@item.Description</p></div>
+                <p>@item.CarbValue gr</p>
+            </div>
+        </div>
+    </div>
+}

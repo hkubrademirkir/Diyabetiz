@@ -1,0 +1,62 @@
+﻿@model FoodVM
+@{
+    ViewBag.Title = "Besin Ekle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("FoodAdd", "Food", FormMethod.Post, new { @role = "form", @enctype = "multipart/form-data" }))
+        {
+            <div class="portlet-body form">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">İsim</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(x => x.food.Name, new { @class = "form-control", type = "text", placeholder = "Enter Food Name", required = "true", maxlength = 100 })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Karbonhidrat Değeri</label>
+                        <div class="col-md-8">
+                            @Html.TextAreaFor(x => x.food.CarbValue, new { @class = "form-control", type = "text", placeholder = "Enter CarbValue", required = "true", maxlength = 20})
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Açıklama</label>
+                        <div class="col-md-8">
+                            @Html.TextAreaFor(x => x.food.Description, new { @class = "form-control", type = "text", placeholder = "Enter Description", required = "true", maxlength = 1000 })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Fotoğraf</label>
+                        <div class="col-md-8">
+                            <input type="file" name="file" required>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group last mt-2 clearfix">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                            <button type="submit" class="btn green">Kaydet</button>
+                            @Html.ActionLink("İptal", "FoodList", null, new { @class = "btn default" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+

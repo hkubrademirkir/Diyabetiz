@@ -1,0 +1,80 @@
+﻿@model DiaEduVM
+@{
+    ViewBag.Title = "DiaEdu";
+}
+
+<div class="container-wrap">
+    <div id="fh5co-about">
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Makale Dizini</h3>
+                <ul class="ministries-list">
+                    @foreach (var item in Model.titleList)
+                    {
+                        <li>
+                            <i class="icon-check"></i>
+                            <a href="#" id="@item.ID" onclick="Myfunc()" name="@item.ID">@item.Title</a>
+                        </li>
+                    }
+                </ul>
+                @*<a class="twitter-timeline"
+                       href="https://twitter.com/twittername"
+                       data-tweet-limit="1">
+                        Tweets by @diyabetiz
+                    </a>*@
+
+
+            </div>
+            <div class="col-md-9" id="content">
+
+                @Html.Partial("_DiaEduPartial", Model)
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+        function Myfunc(){
+
+            $('a').on('click', function (ev) {
+                ev.stopPropagation()
+                checkEl = $(this).attr('id');
+                console.log(checkEl);
+
+            $.ajax({
+                type: "Get" ,
+                url: '@Url.Action("DiaEduPartial", "Home")',
+                data: { diaEduId: checkEl },
+                success: function (result) {
+                    $("#content").html(result);
+                },
+                error: function () {
+
+                }
+            }).done(function () {
+
+                    });
+            });
+        };
+
+</script>
+<script type="text/javascript">
+
+
+        var header = document.getElementById("navBar");
+var lis = header.getElementsByTagName("LI");
+for (var i = 0; i < lis.length; i++) {
+  lis[i].addEventListener("click", function() {
+  var current = document.getElementsByClassName("active");
+  current[0].className = current[0].className.replace(" active", "");
+  this.className += " active";
+  });
+}
+</script>
+
+@*$('ul li a').click(function(){
+    $('li').parent().removeClass("active");
+    $(this).parent('li').addClass("active");
+     })*@

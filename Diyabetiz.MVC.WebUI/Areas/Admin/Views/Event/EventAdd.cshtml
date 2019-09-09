@@ -1,0 +1,97 @@
+﻿@model EventVM
+@{
+    ViewBag.Title = "Etkinlik Ekle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("EventAdd", "Event", FormMethod.Post, new { @role = "form", @enctype = "multipart/form-data" }))
+        {
+            <div class="portlet-body form">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Başlık</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.Event.Title, new { @class = "form-control", type = "text", placeholder = "Enter Content Title", required = "true", maxlength = 100 })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Açıklama</label>
+                        <div class="col-md-9">
+
+                            @Html.TextAreaFor(x => x.Event.Description, new { @class = "form-control", id = "", type = "text", placeholder = "Enter Description", required = "true", maxlength = 1000 })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Başlangıç Tarihi</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.Event.EventDate, new { @type = "date", @class = "form-control datepicker", required = "true" })
+
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Bitiş Tarihi</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.Event.CreatedDate, new { @type = "date", @class = "form-control datepicker", required = "false" })
+
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Renk(ing)</label>
+                        <div class="col-md-9">
+
+                            @Html.TextAreaFor(x => x.Event.ThemeColor, new { @class = "form-control", id = "", type = "text", placeholder = "Enter Color Name (İng)", required = "true", maxlength = 30 })
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Adres</label>
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(x => x.Event.Adress, new { @type = "text", @class = "form-control ", placeholder = "Enter Address", required = "true" })
+
+                        </div>
+                    </div>
+                    <br />
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Tüm Gün mü?</label>
+                        <div class="col-md-9">
+                            @Html.CheckBoxFor(x => x.Event.IsFullDay)
+
+                        </div>
+                    </div>
+                    <div class="form-group row col-md-12">
+                        <label class="col-md-3 control-label">Fotoğraf</label>
+                        <div class="col-md-9">
+                            <input type="file" name="file" required>
+
+                        </div>
+                    </div>
+                    <div class="form-group last  clearfix row">
+                        <div class="col-md-3"></div>
+
+
+                        <div class="col-md-9">
+                            <button type="submit" class="btn green">Kaydet</button>
+                            @Html.ActionLink("İptal", "EventList", null, new { @class = "btn default" })
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#summernote').summernote();
+    });
+</script>

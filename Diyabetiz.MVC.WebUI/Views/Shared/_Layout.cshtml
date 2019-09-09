@@ -1,0 +1,259 @@
+﻿
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Diyabetiz</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
+    <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
+    <meta name="author" content="freehtml5.co" />
+
+    <!-- Facebook and Twitter integration -->
+    <meta property="og:title" content="" />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="" />
+    <meta property="og:site_name" content="" />
+    <meta property="og:description" content="" />
+    <meta name="twitter:title" content="" />
+    <meta name="twitter:image" content="" />
+    <meta name="twitter:url" content="" />
+    <meta name="twitter:card" content="" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nothing+You+Could+Do" rel="stylesheet">
+    @*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">*@
+    <link rel="stylesheet" href="~/css/open-iconic-bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/animate.css">
+
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+
+    <link rel="stylesheet" href="~/css/aos.css">
+
+    <link rel="stylesheet" href="~/css/ionicons.min.css">
+
+    <link rel="stylesheet" href="~/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="~/css/jquery.timepicker.css">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/css/flaticon.css">
+    <link rel="stylesheet" href="~/css/icomoon.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <link rel="stylesheet" href="~/css/awesome-bootstrap-checkbox.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    
+    <script async src="//jsfiddle.net/rejithrkrishnan/ga8vtojg/1/embed/"></script>
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="~/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="~/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="~/css/magnific-popup.css">
+    <!-- Flexslider  -->
+    <link rel="stylesheet" href="~/css/flexslider.css">
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/css/owl.theme.default.min.css">
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="~/css/style.css">
+    <!-- Modernizr JS -->
+    <script src="~/js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+
+    <script src="~/js/respond.min.js"></script>
+    <![endif]-->
+    @*<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>*@
+
+    <!-- include summernote css/js -->
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <style>
+        .containerF {
+            position: relative;
+        }
+
+        .imageF {
+            opacity: 1;
+            display: block;
+            transition: .5s ease;
+            backface-visibility: hidden;
+        }
+
+        .middleF {
+            transition: .5s ease;
+            opacity: 0;
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            /*right:50%;*/
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        .containerF:hover .imageF {
+            opacity: 0.3;
+        }
+
+        .containerF:hover .middleF {
+            opacity: 1;
+        }
+
+        .textF {
+            background-color: #4CAF50;
+            color: white;
+            font-size: 12px;
+            padding: 5px 6px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="fh5co-loader"></div>
+    <div id="page">
+        <nav class="fh5co-nav" role="navigation">
+            <div class="container-wrap">
+                <div class="top-menu">
+
+                    <div class="row">
+                        <div class="col-md-12 col-offset-0 text-center">
+                            <div class="col-md-10 col-md-push-1" id="fh5co-logo">
+                                <a href="@Url.Action("Home","Home")">
+                                    <img src="~/images/e.jpg" alt="logo" class="logo-default" />
+                                </a>
+                            </div>
+                            <div class="col-md-2">
+                                @if (ViewContext.HttpContext.User.Identity.IsAuthenticated)
+                                {
+                                    <div class="col-md-8 text-right"> <h6>Hoş Geldiniz!</h6></div>
+                                    <div class="col-md-4 text-left"><h6>@ViewContext.HttpContext.User.Identity.Name</h6></div>
+                                }
+
+                            </div>
+
+                        </div>
+                        <div id="navBar" class="col-md-12 col-md-offset-0 text-center menu-1">
+                            <ul>
+                                <li class="active"><a href="@Url.Action("Home","Home")">Anasayfa</a></li>
+                                <li><a href="@Url.Action("News","Home")">Diyabetizden</a></li>
+                                <li class="has-dropdown">
+                                    <a href="@Url.Action("DiaEdu","Home")">Diyabet Eğitimi</a>
+                                    <ul class="dropdown">
+                                        @{Html.RenderAction("DiaEduLayout", "Home");}
+
+                                    </ul>
+                                </li>
+                                <li><a href="@Url.Action("CarbCounting","Home")">Karbonhidrat Sayımı</a></li>
+                                <li><a href="@Url.Action("AboutUs","Home")">Hakkımızda</a></li>
+                                <li><a href="@Url.Action("ContactUs","Home")">İletişim</a></li>
+                                @if (!ViewContext.HttpContext.User.Identity.IsAuthenticated)
+                                {
+                                    <li><a href="@Url.Action("SignIn", "Account")">Giriş Yap</a></li>
+                                }
+                                else
+                                {
+                                    <li><a href="@Url.Action("Logout", "Account")"> Çıkış Yap</a></li>
+                                }
+
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
+        <div class="container-wrap">
+            @RenderBody()
+        </div><!-- END container-wrap -->
+        <div class="container-wrap">
+            <footer id="fh5co-footer" role="contentinfo">
+                <div class="col-md-4 text-center">
+                    <h3>198 West 21th Street, Suite 721 New York NY 10016</h3>
+                    <a href="@Url.Action("Index","Home")">
+                        <img src="~/images/logo.png" alt="logo" class="logo-default" />
+                    </a>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h2><a href="#">Diyabetiz</a></h2>
+                </div>
+                <div class="col-md-4 text-center">
+                    <p>
+                        <ul class="fh5co-social-icons">
+                            <li><a href="https://twitter.com/diyabetiz"><i class="icon-twitter2"></i></a></li>
+                            <li><a href="https://www.facebook.com/diyabetiz"><i class="icon-facebook2"></i></a></li>
+                            <li><a href="https://www.instagram.com/diyabetiz/"><i class="icon-instagram"></i></a></li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="row copyright">
+                    <div class="col-md-12 text-center">
+                        <p>
+                            <small class="block">&copy;  Diyabetiz | Tip 1 Diyabetlilerin Buluşma Noktası. Tüm hakları saklıdır.</small>
+                            <small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">KD</a> </small>
+                        </p>
+                    </div>
+                </div>
+            </footer>
+        </div><!-- END container-wrap -->
+    </div>
+
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-arrow-up2"></i></a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="~/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <!-- Flexslider -->
+    <script src="~/js/jquery.flexslider-min.js"></script>
+    <!-- Carousel -->
+    <script src="~/js/owl.carousel.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/magnific-popup-options.js"></script>
+    <!-- Counters -->
+    <script src="~/js/jquery.countTo.js"></script>
+    <!-- Main -->
+    <script src="~/js/main.js"></script>
+
+    @*<script src="~/js/jquery-migrate-3.0.1.min.js"></script>*@
+    <script src="~/js/popper.min.js"></script>
+
+    <script src="~/js/jquery.easing.1.3.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/jquery.stellar.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/js/aos.js"></script>
+    <script src="~/js/jquery.animateNumber.min.js"></script>
+    <script src="~/js/bootstrap-datepicker.js"></script>
+    <script src="~/js/jquery.timepicker.min.js"></script>
+    <script src="~/js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="~/js/google-map.js"></script>
+    @RenderSection("Scripts", false)
+</body>
+
+</html>

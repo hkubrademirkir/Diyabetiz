@@ -1,0 +1,34 @@
+﻿@model DiaEduVM
+
+@foreach (var item in Model.diabetesEducations)
+{
+   <li><a href="@Url.Action("DiaEdu","Home",new {id=item.ID })" id="@item.ID" >@item.Title</a></li>
+
+}
+
+   @*<script type="text/javascript">
+
+        function Myfunc5(){
+
+            $('.myfunc a').on('click', function (e) {
+                e.stopPropagation()
+                myId = $(this).attr('id');
+                console.log(myId);
+
+            $.ajax({
+                type: "Get" ,
+                url: '@Url.Action("DiaEdu", "Home")',
+                data: { id: myId },
+                success: function () {  
+                   console.log("s");
+                },
+                error: function () {
+        console.log("e");
+                }
+            }).done(function () {
+        console.log("d");
+                    });
+            });
+        };
+
+   </script>*@

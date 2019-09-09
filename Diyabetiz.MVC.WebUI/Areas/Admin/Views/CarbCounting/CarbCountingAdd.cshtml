@@ -1,0 +1,56 @@
+﻿@model CarbCountingVM
+@{
+    ViewBag.Title = "Karbonhidrat Sayımı İçerik Ekle";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12">
+        @using (Html.BeginForm("CarbCountingAdd", "CarbCounting", FormMethod.Post, new { @role = "form", @enctype = "multipart/form-data" }))
+        {
+            <div class="portlet-body form">
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Başlık</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(x => x.carbohydrateCounting.Title, new { @class = "form-control", type = "text", placeholder = "Enter Content Title", required = "true", maxlength = 100 })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Açıklama</label>
+                        <div class="col-md-8">
+                            @Html.TextAreaFor(x => x.carbohydrateCounting.Description, new { @class = "form-control", type = "text", placeholder = "Enter Description", required = "true", maxlength = 2000 })
+                        </div>
+                    </div>
+                    <br />
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Fotoğraf</label>
+                        <div class="col-md-8">
+                            <input type="file" name="file" required>
+                        </div>
+                    </div>
+                    <br />
+                    <div class="form-group last mt-2 clearfix">
+                        <div class="col-md-4">
+                        </div>
+                        <div class="col-md-8">
+                            <button type="submit" class="btn green">Kaydet</button>
+                            @Html.ActionLink("İptal", "CarbCountingList", null, new { @class = "btn default" })
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+</script>
+
+

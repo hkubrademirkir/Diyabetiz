@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Food>
+@{
+    ViewBag.Title = "";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-settings font-red"></i>
+                    <span class="caption-subject font-red sbold">Besin Listesi</span>
+                </div>
+                <div class="actions">
+                    @Html.ActionLink("Ekle", "FoodAdd", null, new { @class = "btn btn-transparent red btn-outline btn-circle btn-sm active" })
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th> İsim </th>
+                                <th> Karbonhidrat </th>
+                                <th> Açıklama </th>
+                                <th> Fotoğraf </th>
+                                <th> İşlem </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Name</td>
+                                    <td>@item.CarbValue</td>
+                                    <td>@item.Description</td>
+                                    <td>
+                                        <img alt="example image" height="100" width="100" src="~/images/Food/@Url.Content(item.ImageURL)">
+                                        
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("FoodUpdate","Food", new { id = item.ID })" class="btn btn-outline btn-circle btn-sm purple">
+                                            <i class="fa fa-edit"></i> Güncelle
+                                        </a>
+                                        <a href="@Url.Action("FoodDelete", "Food", new { id = item.ID })" class="btn btn-outline btn-circle btn-sm red">
+                                            <i class="fa fa-remove"></i> Sil
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

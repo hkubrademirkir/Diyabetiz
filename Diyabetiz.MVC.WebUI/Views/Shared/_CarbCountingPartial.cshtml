@@ -1,0 +1,14 @@
+﻿@model CarbCountingVM
+
+<div class="col-md-9 animate-box fadeInUp animated-fast">
+    <div class="news">
+        <a href="#" class="img-holder"><img class="img-responsive" src="/images/CarbCounting/@Url.Content(Model.carbCounting.ImageURL)" alt="r"></a>
+        <div class="desc">
+            <span class="date">@Model.carbCounting.CreatedDate</span>
+            <h3><a href="#">@Model.carbCounting.Title</a></h3>
+            <p>@Model.carbCounting.Description</p>
+           
+        </div>
+    </div>
+</div>
+

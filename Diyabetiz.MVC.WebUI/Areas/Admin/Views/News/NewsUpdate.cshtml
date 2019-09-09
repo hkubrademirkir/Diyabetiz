@@ -1,0 +1,56 @@
+﻿@model NewsVM
+    @{
+        ViewBag.Title = "Haberi Güncelle";
+        Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    }
+
+    <div class="row">
+        <div class="col-md-12">
+            @using (Html.BeginForm("NewsUpdate", "News", FormMethod.Post, new { @role = "form", @enctype = "multipart/form-data" }))
+            {
+                <div class="portlet-body form">
+                    <div class="form-body">
+                        @Html.HiddenFor(x => x.news.ID)
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Başlık</label>
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(x => x.news.Title, new { @class = "form-control", type = "text", placeholder = "Enter News Title", required = "true", maxlength = 100 })
+                            </div>
+                        </div>
+                        <br />
+
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Açıklama</label>
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(x => x.news.Description, new { @class = "form-control", id = "summernote", type = "text", placeholder = "Enter Description", required = "true", maxlength = 1000 })
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Fotoğraf</label>
+                            <div class="col-md-10">
+                                <input type="file" name="file" required>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="form-group last mt-2 clearfix">
+                            <div class="col-md-2">
+                            </div>
+                            <br />
+                            <div class="col-md-10">
+                                <button type="submit" class="btn green">Kaydet</button>
+                                @Html.ActionLink("İptal", "NewsList", null, new { @class = "btn default" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+    <script type="text/javascript">
+    jQuery(document).ready(function ($) {
+        $('#summernote').summernote();
+    });
+    </script>

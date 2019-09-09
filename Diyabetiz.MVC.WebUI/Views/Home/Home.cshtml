@@ -1,0 +1,283 @@
+﻿@model HomeVM
+@{
+    ViewBag.Title = "Home";
+}
+
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <br /><h3>Karbonhidrat Hesaplayıcı</h3>
+    </div>
+    <div class="prev col-md-1 text-right text-success   " id="prev1">
+        <br /><br /><br /><br /><br />
+        <span class="glyphicon glyphicon-chevron-left "></span>
+    </div>
+    <div class="row resume01 col-md-10 col-md-push-1">
+        @foreach (var item in Model.Foods)
+        {
+            <div class="col-md-2 animate-box fadeInUp animated-fast containerF">
+                <div class="news">
+                    <a href="#" onclick="food()" id="@item.ID" class="img-holder "><img class="img-responsive imageF" src="~/images/Food/@Url.Content(item.ImageURL)" alt="Free HTML5 Website Template by freehtml5.co"></a>
+                    <div class="middleF">
+                        <div class="textF">Hesaplayıcıya Ekle</div>
+                    </div>
+                    <div class="desc">
+                        <h3><a href="#">@item.Name</a></h3>
+                        <p>@item.CarbValue gr</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+    <div class="next col-md-1 text-left text-success " id="next1">
+        <br /><br /><br /><br /><br />
+        <span class="glyphicon glyphicon-chevron-right "></span>
+    </div>
+    @*<div id="myElem" name="myElem" stye="top: 100px" class="text-success element"><span class="glyphicon glyphicon-edit"></span></div>*@
+</div>
+<hr />
+
+<div class="row">
+    <div class="col-md-3">
+        <a class="twitter-timeline" data-lang="tr" data-theme="dark" href="https://twitter.com/diyabetiz?ref_src=twsrc%5Etfw">Tweets by diyabetiz</a>
+
+    </div>
+    <div class="col-md-9">
+        <div id="">
+            <div class="row animate-box fadeInUp animated-fast">
+                <div class="col-md-6 col-md-offset-3 text-center ">
+                    <h2>Diyabetizden Haberler</h2>
+
+                </div>
+            </div>
+            <div class="row">
+                @foreach (var item in Model.newsVMList)
+                {
+                    <div class="col-md-3 animate-box fadeInUp animated-fast">
+                        <div class="news">
+                            <a href="#" class="img-holder"><img class="img-responsive" src="~/images/News/@Url.Content(item.imageUrl)" alt=""></a>
+                            <div class="desc">
+                                <span class="date">@item.createdDate.Value.ToShortDateString()</span>
+                                <h3><a href="#">@item.title</a></h3>
+                                <p>@item.shortDescription</p>
+                                <a href="@Url.Action("News", "Home", new { id = item.news.ID })" id="@item.news.ID" name="@item.news.ID">Read More <i class="icon-arrow-right3"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </div>
+    <div class="row col-md-9"><br /></div>
+    <div class="row col-md-9">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="row animate-box fadeInUp animated-fast">
+                <div class="col-md-6 col-md-offset-3 text-center ">
+                    <h3>Diyabetiz Etkinilik Takvimi</h3>
+
+                </div>
+            </div>
+            <div id="calender"></div>
+            <div id="myModal" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title"><span id="eventTitle"></span></h4>
+                        </div>
+                        <div class="modal-body">
+                            <p id="pDetails"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row col-md-9"><br /><hr /></div>
+    <div class="row col-md-9">
+        <div class="row animate-box fadeInUp animated-fast">
+            <div class="col-md-6 col-md-offset-3 text-center ">
+                <h3>Karbonhidrat Hesaplayıcı</h3>
+                <br />
+                <a href="@Url.Action("Remove","Home")">Listeyi Temizle</a>
+            </div>
+        </div>
+        @if (Convert.ToInt32(Session["count"]) > 0)
+        {
+            <div id="content2" class="row col-md-10 col-md-push-1">
+
+                @{Html.RenderAction("CountingHomePartial", "Home");}
+
+               
+
+            </div>
+         }
+
+
+
+        </div>
+
+</div>
+
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.css" rel="stylesheet" />
+<link href="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.print.css" rel="stylesheet" media="print" />
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var events = [];
+            $.ajax({
+                type: "GET",
+                url: "/Home/GetEvents",
+                success: function (data) {
+                    console.log("s");
+                    $.each(data, function (i, v) {
+                        events.push({
+                            title: v.Title,
+                            description: v.Description,
+                            start: moment(v.EventDate),
+                            end: v.CreatedDate != null ? moment(v.CreatedDate) : null,
+                            color: v.ThemeColor,
+                            allDay : v.IsFullDay
+                        });
+                    })
+
+                    GenerateCalender(events);
+                },
+                error: function (error) {
+                    alert('failed');
+                }
+            })
+
+            function GenerateCalender(events) {
+                $('#calender').fullCalendar('destroy');
+                $('#calender').fullCalendar({
+                    contentHeight: 400,
+                    defaultDate: new Date(),
+                    timeFormat: 'h(:mm)a',
+                    header: {
+                        left: 'prev,next today',
+                        center: '',
+                        right: 'month,basicWeek,basicDay,agenda'
+                    },
+                    eventLimit: true,
+                    eventColor: '#378006',
+                    events: events,
+                    eventClick: function (calEvent, jsEvent, view) {
+                        $('#myModal #eventTitle').text(calEvent.title);
+                        var $description = $('<div/>');
+                        $description.append($('<p/>').html('<b>Start:</b>' + calEvent.start.format("DD-MMM-YYYY HH:mm a")));
+                        if (calEvent.end != null) {
+                            $description.append($('<p/>').html('<b>End:</b>' + calEvent.end.format("DD-MMM-YYYY HH:mm a")));
+                        }
+                        $description.append($('<p/>').html('<b>Description:</b>' + calEvent.description));
+                        $('#myModal #pDetails').empty().html($description);
+
+                        $('#myModal').modal();
+                    }
+                })
+            }
+        });
+
+         function food(){
+
+            $('a').on('click', function (ev) {
+                ev.stopPropagation()
+                checkEl = $(this).attr('id');
+                console.log(checkEl);
+
+            $.ajax({
+                type: "Get" ,
+                url: '@Url.Action("AddCarbCount", "Home")',
+                data: { foodId: checkEl },
+                success: function (result) {
+                    $("#content2").html(result);
+                },
+                error: function () {
+
+                }
+            }).done(function () {
+
+                    });
+            });
+        };
+    </script>
+    <script>
+
+       $( document ).ready(function() {        
+            var header = document.getElementById("navBar");
+            var lis = header.getElementsByTagName("li");
+            for (var i = 0; i < lis.length; i++) {
+            lis[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            current[0].className = current[0].className.replace(" active", "");
+            this.className += " active";
+           });
+         };
+
+        })
+    </script>
+}
+
+
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script type="text/javascript">
+
+    var page = 1;
+    $(".resume01 > div").slice(0, 5).addClass('page1')
+    $(".resume01 > div").slice(5, 10).addClass('page2').hide();
+    $(".resume01 > div").slice(10, 15).addClass('page3').hide();
+    var maxPage = 3;
+    $("#next1").on('click', function () {
+        if (page < maxPage) {
+            $(".resume01 > div:visible").hide();
+            $('.page' + ++page).show();
+        }
+    });
+    $("#prev1").on('click', function () {
+        if (page > 1) {
+            $(".resume01   > div:visible").hide();
+            $('.page' + --page).show();
+        }
+    });
+
+
+    //$myElem = $('.element');
+
+    //$(document).ready(function () {
+    //    $(window).bind("scroll", function () {
+    //        if ($(this).scrollTop() >= $myElem.offset().top){
+    //            console.log("I have reached the position of myElem");
+    //        }
+    //        else if ($(this).scrollTop() >= $myElem.offset().top + $myElem.height()) {
+    //            console.log("I have passed myElem");
+    //        }
+
+    //    });
+    //});
+    //jQuery(document).ready(function ($) {
+    //    $('.summernote').on('summernote.init', function () {
+    //        $('textarea.someDummyClassName').html($('.summernote').summernote("code"))
+    //    }).on("summernote.blur", function () {
+    //        $('textarea.someDummyClassName').html($('.summernote').summernote("code"))
+    //    }).summernote({
+    //        height: 280,
+
+    //    });
+    //});
+</script>
+
+

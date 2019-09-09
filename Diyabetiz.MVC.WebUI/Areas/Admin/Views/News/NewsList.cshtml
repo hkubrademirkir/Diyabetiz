@@ -1,0 +1,58 @@
+﻿@model NewsVM
+@{
+    ViewBag.Title = "";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-settings font-red"></i>
+                    <span class="caption-subject font-red sbold">Haber Listesi</span>
+                </div>
+                <div class="actions">
+                    @Html.ActionLink("Ekle", "NewsAdd", null, new { @class = "btn btn-transparent red btn-outline btn-circle btn-sm active" })
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-scrollable">
+                    <table class="table table-hover table-light">
+                        <thead>
+                            <tr>
+                                <th> Başlık </th>
+                                <th> Açıklama </th>
+                                <th> Tarih </th>
+                                <th> Fotoğraf </th>
+                                <th> İşlem </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.newsList)
+                            {
+                                <tr>
+                                    <td>@item.Title</td>
+                                    <td>@item.Description</td>
+                                    <td>@item.CreatedDate</td>
+                                    
+                                    <td><img alt="example image" style="display:flex" height="100" width="100" src="~/images/News/@Url.Content(item.ImageURL)"></td>
+
+                                    <td>
+                                        <a href="@Url.Action("NewsUpdate","News", new { id = item.ID })" class="btn btn-outline btn-circle btn-sm purple">
+                                            <i class="fa fa-edit"></i> Güncelle
+                                        </a>
+                                        <a href="@Url.Action("NewsDelete", "News", new { id = item.ID })" class="btn btn-outline btn-circle btn-sm red">
+                                            <i class="fa fa-remove"></i> Sil
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,17 @@
+﻿@model HomeVM
+
+@foreach (var item in Model.newsList)
+{
+    <div class="col-md-9 animate-box fadeInUp animated-fast">
+        <div class="news">
+            <a href="#" class="img-holder"><img class="img-responsive" src="/images/News/@Url.Content(item.ImageURL)" alt="r"></a>
+            <div class="desc">
+                <span class="date">@item.CreatedDate</span>
+                <h3><a href="#">@item.Title</a></h3>
+                <p>@item.Description</p>
+                
+            </div>
+        </div>
+    </div>
+}
+

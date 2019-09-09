@@ -1,0 +1,15 @@
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\bin\Debug\Diyabetiz.DAL.dll.config
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\bin\Debug\Diyabetiz.DAL.dll
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\bin\Debug\Diyabetiz.DAL.pdb
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\bin\Debug\Diyabetiz.Entities.dll
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\bin\Debug\EntityFramework.dll
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\bin\Debug\Diyabetiz.Entities.pdb
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\bin\Debug\Diyabetiz.Entities.dll.config
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\bin\Debug\EntityFramework.xml
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\obj\Debug\Diyabetiz.DAL.csprojAssemblyReference.cache
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\obj\Debug\Diyabetiz.DAL.csproj.CoreCompileInputs.cache
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\obj\Debug\Diyabetiz.DAL.csproj.CopyComplete
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\obj\Debug\Diyabetiz.DAL.dll
+C:\Users\ASUS\source\repos\DiyabetizSolution\Diyabetiz.DAL\obj\Debug\Diyabetiz.DAL.pdb
